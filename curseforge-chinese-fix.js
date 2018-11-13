@@ -12,12 +12,39 @@
 
 (function() {
   const translation = {
+    Elerium: {
+      ControlPanel: {
+        AreYouSureYouWantToDeleteName: "Are you sure you want to delete {0}?"
+      },
+      Developer: {
+        AreYouSureRemoveRole:
+          "Are you sure you would like to delete {0} from the company?"
+      },
+      Extension: {
+        DeveloperWritableChannelSegmentVersion:
+          "Developer Writable Channel Segment Version",
+        DeveloperWritableChannelSegmentVersionDesc:
+          "If present - the extension will be inactive unless the version string in the channel\u0027s developer segment matches this value",
+        MobileConfirmDisableHeader:
+          "Are you sure you want to disable mobile support?",
+        MobileConfirmDisableMessage:
+          "When this version is released users will no longer be able access your extension from mobile.",
+        RequestIdentityLinkRequired: "Add Tooltip Copy",
+        RequestIdentityLinkRequiredWithPurchases:
+          "Request Identity Link required with In-Extension Purchases",
+        RequiredPerChannelConfigurations: "Required Per Channel Configuration",
+        RequiredPerChannelConfigurationsDesc:
+          'If present - this must match the per channel configuration string, for activation to proceed. See the \u003ca href="https://dev.twitch.tv/docs/extensions/reference/#set-extension-required-configuration" target="_blank"\u003eSet Extension Required Configuration\u003c/a\u003e Endpoint.'
+      },
+      Global: { Favorite: "Favorite", Unfavorite: "Unfavorite" }
+    },
     Global: {
       Buttons: {
         Cancel: "取消",
         Create: "创建",
         Delete: "删除",
         Edit: "编辑",
+        Push: "Push",
         Update: "更新"
       },
       Calendar: { Month: "本月", Today: "今天", Week: "周" },
@@ -25,26 +52,34 @@
         Add: "添加",
         AddCharacter: "添加一个字符",
         AdvancedSearch: "高级搜索",
-        Apply: "申请",
+        Apply: "应用",
         Ascending: "递增",
         ClickHere: "点击这里",
         ColonConnector: "：",
         Comments: "评论",
         Confirm: "确认",
-        ConfirmDelete: "您确定要删除{0}？",
+        ConfirmDelete: "您确定要删除{0}吗？",
         Descending: "降序",
         Description: "描述",
         EditMyAccount: "编辑我的帐户",
         EmailErrorMessage: "必须是一个电子邮件地址。",
         EqualErrorMessage: "{0}必须等于{1}",
         ErrorOccured: "抱歉，处理请求时发生错误。",
+        FileContainsVirus: "File is contaminated with a virus.",
         IntegerValueErrorMessageMaximum: "必须在大多数被{0}。",
         IntegerValueErrorMessageMinimum: "必须至少{0}。",
+        LengthErrorMessageMaximum:
+          "Must be at most {0} PLURAL[{0};character;characters] long.",
+        LengthErrorMessageMinimum:
+          "Must be at least {0} PLURAL[{0};character;characters] long.",
         Logout: "注销",
+        Milliseconds: "{0} PLURAL[{0};millisecond;milliseconds]",
         More: "更多",
         MyCharacters: "我的人物",
         Name: "名字",
+        New: "New",
         Normal: "正常",
+        NumberOfPrivateMessagesAbbr: "{0} PLURAL[{0};PM;PMs]",
         PageOf: "页面{0}的{1}",
         PageXOfY: "页{0}的{1}",
         PleaseLogIn: "请登录",
@@ -57,6 +92,7 @@
         SelectCharacter: "选择一个字符",
         SimpleSearch: "简单搜索",
         Submit: "提交",
+        TestStuff: "This is just a test. {0} PLURAL[{0};bird;birds].",
         Title: "标题",
         UserAsCharacter: "{0}作为",
         UserAvatar: "{0}的头像",
@@ -75,14 +111,36 @@
         PublishOnTemplate: "发布{0}",
         SelectImage: "选择一个图像"
       },
+      Contests: {
+        ContestPrizeItemAwardSubject: "You Have Been Awarded {0}",
+        ContestPrizeItemHtmlBody:
+          'You have been awarded {1}.\r\n\r\n\u003ca href="{2}" target=_blank\u003e{0}\u003c/a\u003e',
+        ContestPrizeItemTextBody:
+          "You have been awarded {0}.\r\n\r\nVisit {1} to claim your prize.",
+        YouAreDisqualified: "You have been disqualified!"
+      },
       ControlPanel: {
         AddNewHeader: "添加新标题",
         AddSubNavigationLink:
           '\u003cdiv class="header"\u003e新增小组导航\u003c/div\u003e添加一个小组导航链接',
         BulkConfirm: "你确定要{0}这些项目？",
+        CompLegacySubscription: "Issue Comp",
+        "Contactology Campaigns": "Contactology Campaigns",
+        EntitySubscriptionTypes: "Entity Subscription Types",
+        LegacySubscriptions: "Legacy Subscriptions",
+        LegacySubscriptionSearch: "Search Legacy Subscriptions",
+        MenuLegacySubscriptions: "Legacy Subscriptions",
         MinimumPostCount: "最低员额数",
+        MovePrivateMessagesPrompt:
+          'Are you sure you want to move these private message(s) into the "{0}" folder?',
+        PushNotification: "Push Notification",
         RemoveLinkTooltip:
-          '\u003cdiv class="header"\u003e删除链接\u003c/div\u003e删除这从你的网站导航链接。'
+          '\u003cdiv class="header"\u003e删除链接\u003c/div\u003e删除这从你的网站导航链接。',
+        SubscriptionID: "Subscription ID",
+        SubscriptionTypeEdit: "Subscription Type Edit",
+        SubscriptionTypePush: "Push Subscription Type Notification",
+        SubscriptionTypes: "Subscription Types",
+        SimpleSearch: "Simple Search"
       },
       Dates: {
         AprilAbbr: "4月",
@@ -133,7 +191,7 @@
         EditForum: "编辑论坛",
         GoToFirstUnreadPost: "进入后先读",
         JumpToPage: "跳到页",
-        LockThread: "线程锁",
+        LockThread: "锁定主题",
         Moderator: "主持人",
         Move: "移动",
         OnSelected: "在选择（{0}）",
@@ -142,10 +200,13 @@
         SearchForums: "搜索论坛",
         SelectAll: "选择所有",
         SendMessage: "发送邮件",
+        Unread: "未读",
         ViewPosts: "查看文章",
         ViewProfile: "查看用户信息"
       },
       Languages: {
+        Arabic: "Arabic",
+        "Brazillian Portugese": "Brazillian Portugese",
         BritishEnglish: "英语（英国）",
         English: "英语",
         French: "法语",
@@ -161,7 +222,13 @@
         SimplifiedChinese: "简体中文",
         Spanish: "西班牙语",
         Swedish: "瑞典语",
-        TraditionalChinese: "繁体中文"
+        TraditionalChinese: "繁体中文",
+        Uzbec: "Uzbec",
+        Vietnamese: "Vietnamese"
+      },
+      MailTemplates: {
+        ReportBody:
+          'Hello {0},\r\n\r\n\u003cp\u003e{6} has reported this \u003ca href="{4}"\u003econtent\u003c/a\u003e on \u003ca href="{7}"\u003e{8}\u003c/a\u003e for the reason {2}.\u003c/p\u003e\r\n\u003cp\u003e{9}\u003c/p\u003e\r\n\u003cp\u003eYou can view the report by \u003ca href="{7}"\u003evisiting the report page\u003c/a\u003e.\u003c/p\u003e\r\n\r\n\u003cp\u003eReported content:\r\n\u003cblockquote\u003e\r\nPosted by \u003ca href="{5}"\u003e{10}\u003c/a\u003e\r\n\u003cp\u003e\r\n{3}\r\n\u003c/p\u003e\r\n\u003c/blockquote\u003e\u003c/p\u003e\r\n\r\n__\r\n\u003cp style="font-size:11px"\u003eTo unsubscribe from these email notifications, go to \u003ca href="{1}"\u003eyour notifications page.\u003c/a\u003e\u003c/p\u003e'
       },
       Polls: {
         AddChoice: "添加选择",
@@ -172,8 +239,20 @@
         RemovePoll: "不要添加的民意调查",
         ViewResults: "查看结果"
       },
+      Ratings: {
+        YouRatedThis:
+          "You rated this {0} PLURAL[{0};star;stars]. {2} PLURAL[{2};user;users] rated it for a total average of {1} PLURAL[{1};star;stars]."
+      },
       Reporting: { Report: "报告" },
       TinyMCE: { XenonMediaPluginDesc: "从文件夹中添加文件" },
+      Translator: {
+        ReportATranslation: "Report a Translation",
+        ReportTranslationInstructions:
+          "To report a translation, click on text that has a dotted underline."
+      },
+      Upsells: {
+        SubscriptionRequiresLogin: "You must be logged in to Subscribe."
+      },
       UserRegistration: {
         ConfirmPassword: "确认密码",
         Password: "密码",
