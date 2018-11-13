@@ -281,23 +281,75 @@
     translation
   )});`;
 
+  /**
+   * 匹配规则
+   */
+  const category = /^(?!\/project)(?!\/forums)(?!\/dashboard)(?:\/[a-zA-Z0-9\-]+)+$/;
+  const project = /^\/projects\/[a-zA-Z0-9\-]+$/;
+  const files = /^\/projects\/[a-zA-Z0-9\-]+\/files$/;
+  const dependencies = /^\/projects\/[a-zA-Z0-9\-]+\/relations\/dependencies$/;
+  const dependents = /^\/projects\/[a-zA-Z0-9\-]+\/relations\/dependents$/;
+
+  const dictionary = {
+    projects: '项目',
+    forum: '论坛',
+    'reward-store': 'Reward Store',
+    dashboard: 'Dashboard',
+    feedback: '反馈',
+
+    modpack: "整合包",
+    customization: "Customization",
+    addons: "Addons",
+    mods: "模组",
+    'texture-packs': "材质包",
+    worlds: "世界"
+  };
+
   document.addEventListener("DOMContentLoaded", function(event) {
+    const path = new URL(document.URL).pathname;
+
     // 加载修改过的汉化
     document.head.appendChild(script);
 
     // 修改全局共通的文本
-    document.querySelector("#nav-projects a span").innerText = "项目";
-    document.querySelector("#nav-forums a span").innerText = "论坛";
-    document.querySelector("#nav-reward-store a span").innerText = "Reward Store";
-    document.querySelector("#nav-dashboard a span").innerText = "Dashboard";
-    document.querySelector("#nav-feedback a span").innerText = "反馈";
+    document.querySelector("#nav-projects a span").innerText = dictionary.projects;
+    document.querySelector("#nav-forums a span").innerText = dictionary.forum;
+    document.querySelector("#nav-reward-store a span").innerText =
+      dictionary['reward-store'];
+    document.querySelector("#nav-dashboard a span").innerText = dictionary.dashboard;
+    document.querySelector("#nav-feedback a span").innerText = dictionary.feedback;
 
-    
-    document.querySelectorAll("#nav-projects li a span")[0].innerText = "整合包";
-    document.querySelectorAll("#nav-projects li a span")[1].innerText = "Customization";
-    document.querySelectorAll("#nav-projects li a span")[2].innerText = "Addons";
-    document.querySelectorAll("#nav-projects li a span")[3].innerText = "模组";
-    document.querySelectorAll("#nav-projects li a span")[4].innerText = "材质包";
-    document.querySelectorAll("#nav-projects li a span")[5].innerText = "世界";
+    document.querySelectorAll("#nav-projects li a span")[0].innerText =
+      dictionary.modpack;
+    document.querySelectorAll("#nav-projects li a span")[1].innerText =
+      dictionary.customization;
+    document.querySelectorAll("#nav-projects li a span")[2].innerText =
+      dictionary.addons;
+    document.querySelectorAll("#nav-projects li a span")[3].innerText =
+      dictionary.mods;
+    document.querySelectorAll("#nav-projects li a span")[4].innerText =
+      dictionary['texture-packs'];
+    document.querySelectorAll("#nav-projects li a span")[5].innerText =
+      dictionary.worlds;
+
+    if (path == "/") {
+    } else if (path == "/projects") {
+      // 按钮：启动项目 -> 新建项目
+      for (const node of document.querySelectorAll(
+        ".project-category .button span"
+      )) {
+        node.innerText = "新建项目";
+      }
+    } else if (path.match(category)) {
+      console.log("category");
+    } else if (path.match(project)) {
+      console.log("project");
+    } else if (path.match(files)) {
+      console.log("files");
+    } else if (path.match(dependencies)) {
+      console.log("dependencies");
+    } else if (path.match(dependents)) {
+      console.log("dependents");
+    }
   });
 })();
