@@ -14,7 +14,7 @@
   const translation = {
     Elerium: {
       ControlPanel: {
-        AreYouSureYouWantToDeleteName: "Are you sure you want to delete {0}?"
+        AreYouSureYouWantToDeleteName: "你确定要删除{0}吗？"
       },
       Developer: {
         AreYouSureRemoveRole:
@@ -36,7 +36,7 @@
         RequiredPerChannelConfigurationsDesc:
           'If present - this must match the per channel configuration string, for activation to proceed. See the \u003ca href="https://dev.twitch.tv/docs/extensions/reference/#set-extension-required-configuration" target="_blank"\u003eSet Extension Required Configuration\u003c/a\u003e Endpoint.'
       },
-      Global: { Favorite: "Favorite", Unfavorite: "Unfavorite" }
+      Global: { Favorite: "收藏", Unfavorite: "取消收藏" }
     },
     Global: {
       Buttons: {
@@ -63,27 +63,27 @@
         Description: "描述",
         EditMyAccount: "编辑我的帐户",
         EmailErrorMessage: "必须是一个电子邮件地址。",
-        EqualErrorMessage: "{0}必须等于{1}",
+        EqualErrorMessage: "{0}必须与{1}相等",
         ErrorOccured: "抱歉，处理请求时发生错误。",
-        FileContainsVirus: "File is contaminated with a virus.",
-        IntegerValueErrorMessageMaximum: "必须在大多数被{0}。",
-        IntegerValueErrorMessageMinimum: "必须至少{0}。",
+        FileContainsVirus: "文件已被病毒感染",
+        IntegerValueErrorMessageMaximum: "必须在{0}以下。",
+        IntegerValueErrorMessageMinimum: "必须在{0}以上。",
         LengthErrorMessageMaximum:
-          "Must be at most {0} PLURAL[{0};character;characters] long.",
+          "长度最大为{0}。",
         LengthErrorMessageMinimum:
-          "Must be at least {0} PLURAL[{0};character;characters] long.",
+          "长度最小为{0}。",
         Logout: "注销",
-        Milliseconds: "{0} PLURAL[{0};millisecond;milliseconds]",
+        Milliseconds: "{0}毫秒",
         More: "更多",
         MyCharacters: "我的人物",
         Name: "名字",
         New: "New",
         Normal: "正常",
-        NumberOfPrivateMessagesAbbr: "{0} PLURAL[{0};PM;PMs]",
-        PageOf: "页面{0}的{1}",
-        PageXOfY: "页{0}的{1}",
+        NumberOfPrivateMessagesAbbr: "{0}条私信",
+        PageOf: "第{0}页，共{1}页",
+        PageXOfY: "第{0}页，共{1}页",
         PleaseLogIn: "请登录",
-        PleaseWaitProcessing: "请稍候，正在处理中……",
+        PleaseWaitProcessing: "请稍候，正在处理中…",
         PrivateMessagesAbbr: "PMs",
         QuoteFrom: "引用{0}",
         Remove: "删除",
@@ -92,48 +92,48 @@
         SelectCharacter: "选择一个字符",
         SimpleSearch: "简单搜索",
         Submit: "提交",
-        TestStuff: "This is just a test. {0} PLURAL[{0};bird;birds].",
+        TestStuff: "这只是一个测试。{0}只鸟。",
         Title: "标题",
-        UserAsCharacter: "{0}作为",
+        UserAsCharacter: "{0} as",
         UserAvatar: "{0}的头像",
         Username: "用户名",
         WelcomeUser: "欢迎您，{0}！"
       },
       ContentManagement: {
         AddMediaGallery: "添加媒体库",
-        ExistingFolders: "现有的文件夹",
+        ExistingFolders: "现有目录",
         HideAddGallery: "不要添加媒体库",
         Insert: "插入",
         InsertAnImage: "插入图片",
-        OnSelectedTemplate: "适用于选择（{0}）",
-        PageFormDoNotSetDate: "不设定日期",
-        PageFormSetDate: "设定日期",
+        OnSelectedTemplate: "应用以选择（{0}）",
+        PageFormDoNotSetDate: "不设置日期",
+        PageFormSetDate: "设置日期",
         PublishOnTemplate: "发布{0}",
-        SelectImage: "选择一个图像"
+        SelectImage: "选择一张图片"
       },
       Contests: {
-        ContestPrizeItemAwardSubject: "You Have Been Awarded {0}",
+        ContestPrizeItemAwardSubject: "你得到了奖励：{0}",
         ContestPrizeItemHtmlBody:
-          'You have been awarded {1}.\r\n\r\n\u003ca href="{2}" target=_blank\u003e{0}\u003c/a\u003e',
+          '你得到了奖励：{1}.\r\n\r\n\u003ca href="{2}" target=_blank\u003e{0}\u003c/a\u003e',
         ContestPrizeItemTextBody:
-          "You have been awarded {0}.\r\n\r\nVisit {1} to claim your prize.",
-        YouAreDisqualified: "You have been disqualified!"
+          "你得到了奖励：{0}.\r\n\r\n访问{1}以领取奖励。",
+        YouAreDisqualified: "你已被取消资格！"
       },
       ControlPanel: {
         AddNewHeader: "添加新标题",
         AddSubNavigationLink:
-          '\u003cdiv class="header"\u003e新增小组导航\u003c/div\u003e添加一个小组导航链接',
-        BulkConfirm: "你确定要{0}这些项目？",
+          '\u003cdiv class="header"\u003e新增分导航\u003c/div\u003e添加一个分导航链接',
+        BulkConfirm: "你确定要{0}这些项目吗？",
         CompLegacySubscription: "Issue Comp",
         "Contactology Campaigns": "Contactology Campaigns",
         EntitySubscriptionTypes: "Entity Subscription Types",
         LegacySubscriptions: "Legacy Subscriptions",
         LegacySubscriptionSearch: "Search Legacy Subscriptions",
         MenuLegacySubscriptions: "Legacy Subscriptions",
-        MinimumPostCount: "最低员额数",
+        MinimumPostCount: "Minimum Post Count",
         MovePrivateMessagesPrompt:
-          'Are you sure you want to move these private message(s) into the "{0}" folder?',
-        PushNotification: "Push Notification",
+          '您确定要将这些私信移动到"${0}"目录内？',
+        PushNotification: "推送通知",
         RemoveLinkTooltip:
           '\u003cdiv class="header"\u003e删除链接\u003c/div\u003e删除这从你的网站导航链接。',
         SubscriptionID: "Subscription ID",
@@ -175,38 +175,38 @@
       },
       ErrorMessages: {
         NumericPrecisionDecimalDigitCountErrorMessageTemplate:
-          "您提供的价值已{0}十进制数字和小数点位数限制{1}位。",
+          "您提供的数值有{0}位小数，而限制为{1}位。",
         TagEmpty: "您不能添加一个空的标签。"
       },
       Files: {
-        AddAttachment: "添加此附件回来。",
+        AddAttachment: "添加此附件",
         ChangeDescription: "更改此附件的说明",
         DeleteAttachment: "删除此附件",
-        FileTooLarge: "该文件提供的是太大。请提供文件小于{0}。"
+        FileTooLarge: "文件太大，请上传小于{0}的文件。"
       },
       Forums: {
         Add: "添加",
         CreateForum: "创建论坛",
         Delete: "删除",
         EditForum: "编辑论坛",
-        GoToFirstUnreadPost: "进入后先读",
+        GoToFirstUnreadPost: "转到第一个未读的帖子",
         JumpToPage: "跳到页",
         LockThread: "锁定主题",
         Moderator: "主持人",
         Move: "移动",
         OnSelected: "在选择（{0}）",
         RestoreContentDescription:
-          "点击恢复您上次输入的文本，对有错误的情况下你的最后一次尝试",
+          "如果上次输入出错，请单击以恢复上次输入的文本",
         SearchForums: "搜索论坛",
-        SelectAll: "选择所有",
-        SendMessage: "发送邮件",
+        SelectAll: "全选",
+        SendMessage: "发送消息",
         Unread: "未读",
-        ViewPosts: "查看文章",
+        ViewPosts: "查看帖子",
         ViewProfile: "查看用户信息"
       },
       Languages: {
-        Arabic: "Arabic",
-        "Brazillian Portugese": "Brazillian Portugese",
+        Arabic: "阿拉伯语",
+        "Brazillian Portugese": "巴西葡萄牙语",
         BritishEnglish: "英语（英国）",
         English: "英语",
         French: "法语",
@@ -223,8 +223,8 @@
         Spanish: "西班牙语",
         Swedish: "瑞典语",
         TraditionalChinese: "繁体中文",
-        Uzbec: "Uzbec",
-        Vietnamese: "Vietnamese"
+        Uzbec: "乌兹别克语",
+        Vietnamese: "越南语"
       },
       MailTemplates: {
         ReportBody:
@@ -241,17 +241,17 @@
       },
       Ratings: {
         YouRatedThis:
-          "You rated this {0} PLURAL[{0};star;stars]. {2} PLURAL[{2};user;users] rated it for a total average of {1} PLURAL[{1};star;stars]."
+          "您的打分是{0}星。{2}名用户的平均打分是{1}星。"
       },
       Reporting: { Report: "报告" },
-      TinyMCE: { XenonMediaPluginDesc: "从文件夹中添加文件" },
+      TinyMCE: { XenonMediaPluginDesc: "从目录中添加文件" },
       Translator: {
         ReportATranslation: "Report a Translation",
         ReportTranslationInstructions:
-          "To report a translation, click on text that has a dotted underline."
+          "要报告翻译，请单击带有虚线下划线的文本。"
       },
       Upsells: {
-        SubscriptionRequiresLogin: "You must be logged in to Subscribe."
+        SubscriptionRequiresLogin: "您必须登录才能订阅。"
       },
       UserRegistration: {
         ConfirmPassword: "确认密码",
@@ -262,10 +262,10 @@
         UsernameIsTaken: "该用户名已被注册。"
       },
       Widgets: {
-        LatestPosts: "最新的帖子",
+        LatestPosts: "最新帖子",
         LatestNews: "最新新闻",
         Poll: "民意调查",
-        WhosOnline: "谁在线",
+        WhosOnline: "在线用户",
         RandomPicture: "随机图片",
         Calendar: "日历",
         Recruitment: "招聘"
@@ -417,9 +417,11 @@
     ) {
       // 相同部分同时处理
       document.querySelector(`li a[href="${root}"]`).innerText = "简介";
-      document.querySelector(`li a[href="${root}/files"]`).innerText = "发布版本";
+      document.querySelector(`li a[href="${root}/files"]`).innerText =
+        "发布版本";
       if (document.querySelector(`li a[href="${root}/images"]`)) {
-        document.querySelector(`li a[href="${root}/images"]`).innerText = "图片";
+        document.querySelector(`li a[href="${root}/images"]`).innerText =
+          "图片";
       }
       document.querySelector(
         `.e-hasSubmenu>a[href="${root}/relations/dependencies"]`
