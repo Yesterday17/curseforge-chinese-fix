@@ -284,5 +284,20 @@
   document.addEventListener("DOMContentLoaded", function(event) {
     // 加载修改过的汉化
     document.head.appendChild(script);
+
+    // 修改全局共通的文本
+    document.querySelector("#nav-projects a span").innerText = "项目";
+    document.querySelector("#nav-forums a span").innerText = "论坛";
+    document.querySelector("#nav-reward-store a span").innerText = "Reward Store";
+    document.querySelector("#nav-dashboard a span").innerText = "Dashboard";
+    document.querySelector("#nav-feedback a span").innerText = "反馈";
+
+    
+    document.querySelectorAll("#nav-projects li a span")[0].innerText = "整合包";
+    document.querySelectorAll("#nav-projects li a span")[1].innerText = "Customization";
+    document.querySelectorAll("#nav-projects li a span")[2].innerText = "Addons";
+    document.querySelectorAll("#nav-projects li a span")[3].innerText = "模组";
+    document.querySelectorAll("#nav-projects li a span")[4].innerText = "材质包";
+    document.querySelectorAll("#nav-projects li a span")[5].innerText = "世界";
   });
 })();
