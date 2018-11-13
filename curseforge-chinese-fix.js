@@ -284,40 +284,53 @@
   /**
    * 匹配规则
    */
-  const category = /^(?!\/project)(?!\/forums)(?!\/dashboard)(?:\/[a-zA-Z0-9\-]+)+$/;
+  const category = /^\/modpacks|customization|mc-addons|mc-mods|texture-packs|worlds(?:\/[a-zA-Z0-9\-]+)*$/;
   const project = /^\/projects\/[a-zA-Z0-9\-]+$/;
   const files = /^\/projects\/[a-zA-Z0-9\-]+\/files$/;
   const dependencies = /^\/projects\/[a-zA-Z0-9\-]+\/relations\/dependencies$/;
   const dependents = /^\/projects\/[a-zA-Z0-9\-]+\/relations\/dependents$/;
 
   const dictionary = {
-    projects: '项目',
-    forum: '论坛',
-    'reward-store': 'Reward Store',
-    dashboard: 'Dashboard',
-    feedback: '反馈',
+    projects: "项目",
+    forum: "论坛",
+    "reward-store": "Reward Store",
+    dashboard: "Dashboard",
+    feedback: "反馈",
 
     modpack: "整合包",
     customization: "Customization",
     addons: "Addons",
     mods: "模组",
-    'texture-packs': "材质包",
-    worlds: "世界"
+    "texture-packs": "材质包",
+    worlds: "世界",
+
+    search: "搜索",
+    "new-project": "新建项目",
+    popularity: "热度",
+    "date-created": "创建时间",
+    "last-updated": "最近更新",
+    name: "名称",
+    "total-downloads": "总下载量",
+    relations: "依赖关系"
   };
 
   document.addEventListener("DOMContentLoaded", function(event) {
     const path = new URL(document.URL).pathname;
+    const root = `/${path.split("/")[1]}/${path.split("/")[2]}`;
 
     // 加载修改过的汉化
     document.head.appendChild(script);
 
     // 修改全局共通的文本
-    document.querySelector("#nav-projects a span").innerText = dictionary.projects;
+    document.querySelector("#nav-projects a span").innerText =
+      dictionary.projects;
     document.querySelector("#nav-forums a span").innerText = dictionary.forum;
     document.querySelector("#nav-reward-store a span").innerText =
-      dictionary['reward-store'];
-    document.querySelector("#nav-dashboard a span").innerText = dictionary.dashboard;
-    document.querySelector("#nav-feedback a span").innerText = dictionary.feedback;
+      dictionary["reward-store"];
+    document.querySelector("#nav-dashboard a span").innerText =
+      dictionary.dashboard;
+    document.querySelector("#nav-feedback a span").innerText =
+      dictionary.feedback;
 
     document.querySelectorAll("#nav-projects li a span")[0].innerText =
       dictionary.modpack;
@@ -328,28 +341,101 @@
     document.querySelectorAll("#nav-projects li a span")[3].innerText =
       dictionary.mods;
     document.querySelectorAll("#nav-projects li a span")[4].innerText =
-      dictionary['texture-packs'];
+      dictionary["texture-packs"];
     document.querySelectorAll("#nav-projects li a span")[5].innerText =
       dictionary.worlds;
 
+    // 搜索框的 placeholder
+    document.querySelector(".b-search-input").placeholder =
+      dictionary.search + "…";
+
     if (path == "/") {
     } else if (path == "/projects") {
+      // <h2>
+      document.querySelectorAll(".category-info h2")[0].innerText =
+        dictionary.modpack;
+      document.querySelectorAll(".category-info h2")[1].innerText =
+        dictionary.customization;
+      document.querySelectorAll(".category-info h2")[2].innerText =
+        dictionary.addons;
+      document.querySelectorAll(".category-info h2")[3].innerText =
+        dictionary.mods;
+      document.querySelectorAll(".category-info h2")[4].innerText =
+        dictionary["texture-packs"];
+      document.querySelectorAll(".category-info h2")[5].innerText =
+        dictionary.worlds;
+
+      // <p>, description
+      const proj_from_reg = /^(\d+) projects by (\d+) authors with more than ([\d,]+) downloads.$/;
+      const proj_to = "已有$2位作者创建了$1个项目，总下载次数已超过$3次。";
+      for (const node of document.querySelectorAll(".category-info p")) {
+        node.innerText = node.innerText.replace(proj_from_reg, proj_to);
+      }
+
       // 按钮：启动项目 -> 新建项目
       for (const node of document.querySelectorAll(
         ".project-category .button span"
       )) {
-        node.innerText = "新建项目";
+        node.innerText = dictionary["new-project"];
       }
     } else if (path.match(category)) {
       console.log("category");
-    } else if (path.match(project)) {
-      console.log("project");
-    } else if (path.match(files)) {
-      console.log("files");
-    } else if (path.match(dependencies)) {
-      console.log("dependencies");
-    } else if (path.match(dependents)) {
-      console.log("dependents");
+      // 新建项目
+      document.querySelector(".project-listing-header li a span").innerText =
+        dictionary["new-project"];
+
+      // 排序方式
+      document.querySelectorAll("#filter-sort option")[0].innerText =
+        dictionary["date-created"];
+      document.querySelectorAll("#filter-sort option")[1].innerText =
+        dictionary["last-updated"];
+      document.querySelectorAll("#filter-sort option")[2].innerText =
+        dictionary.name;
+      document.querySelectorAll("#filter-sort option")[3].innerText =
+        dictionary.popularity;
+      document.querySelectorAll("#filter-sort option")[4].innerText =
+        dictionary["total-downloads"];
+
+      // Prev -> 上一页
+      for (let node of document.querySelectorAll('a[rel="prev"]')) {
+        if (node.innerText == "Prev") {
+          node.innerText = "上一页";
+        }
+      }
+
+      // Next -> 下一页
+      for (let node of document.querySelectorAll('a[rel="next"]')) {
+        if (node.innerText == "Next") {
+          node.innerText = "下一页";
+        }
+      }
+    } else if (
+      path.match(project) ||
+      path.match(files) ||
+      path.match(dependencies) ||
+      path.match(dependents)
+    ) {
+      // 相同部分同时处理
+      document.querySelector(`li a[href="${root}"]`).innerText = "简介";
+      document.querySelector(`li a[href="${root}/files"]`).innerText = "发布版本";
+      if (document.querySelector(`li a[href="${root}/images"]`)) {
+        document.querySelector(`li a[href="${root}/images"]`).innerText = "图片";
+      }
+      document.querySelector(
+        `.e-hasSubmenu>a[href="${root}/relations/dependencies"]`
+      ).innerText = dictionary.relations;
+      // TODO: 对每个页面不同的部分进行细分汉化
+      if (path.match(project)) {
+        console.log("project");
+      } else if (path.match(files)) {
+        console.log("files");
+      } else if (path.match(dependencies)) {
+        console.log("dependencies");
+      } else if (path.match(dependents)) {
+        console.log("dependents");
+      }
+    } else {
+      console.log("others");
     }
   });
 })();
