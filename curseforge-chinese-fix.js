@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CurseForge汉化文本修正
 // @namespace    https://www.yesterday17.cn/
-// @version      1.0
+// @version      1.0.1
 // @description  修改CurseForge的汉化文本
 // @author       Yesterday17
 // @include      *://minecraft.curseforge.com/*
@@ -75,7 +75,7 @@
         Logout: "注销",
         Milliseconds: "{0}毫秒",
         More: "更多",
-        MyCharacters: "我的人物",
+        MyCharacters: "我的角色",
         Name: "名字",
         New: "New",
         Normal: "正常",
@@ -264,7 +264,7 @@
       Widgets: {
         LatestPosts: "最新帖子",
         LatestNews: "最新新闻",
-        Poll: "民意调查",
+        Poll: "调查",
         WhosOnline: "在线用户",
         RandomPicture: "随机图片",
         Calendar: "日历",
@@ -418,7 +418,7 @@
       // 相同部分同时处理
       document.querySelector(`li a[href="${root}"]`).innerText = "简介";
       document.querySelector(`li a[href="${root}/files"]`).innerText =
-        "发布版本";
+        "文件";
       if (document.querySelector(`li a[href="${root}/images"]`)) {
         document.querySelector(`li a[href="${root}/images"]`).innerText =
           "图片";
